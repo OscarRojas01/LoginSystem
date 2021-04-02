@@ -6,23 +6,25 @@
 int main()
 {
 	int choice;
-	std::cout << "1: Register\n2: Login\n3: Login support\n\nYour Choice:"; std::cin >> choice;
+	std::cout << "0: Exit\n1: Register\n2: Login\n3: Login support\n\nYour Choice:"; std::cin >> choice;
 
 	switch (choice) {
+		case 0:
+			return 0;
+			break;
 		case 1: {
 			std::string Username, Password;
 			std::cout << "Enter a username: "; std::cin >> Username;
 			std::cout << "Enter a password: "; std::cin >> Password;
-			User NewUser(Username, Password);
-			NewUser.~User();
-			main();
+			User* NewUser = new User(Username, Password);
+			NewUser->~User();
 			break;
 		}
 		case 2: {
-			User account;
-			if (account.LoadUser()) {
+			User* account = new User();
+			if (account->LoadUser()) {
 				std::cout << "Logging in" << std::endl;
-				account.UserOptions();
+				account->UserOptions();
 			}
 			break;
 		}
@@ -32,5 +34,6 @@ int main()
 		default:
 			std::cout << "Invalid choice" << std::endl;
 	}
+	main();
 }
 
