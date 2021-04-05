@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="LoginClient.cpp" />
+    <ClCompile Include="Src\User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\User.h" />

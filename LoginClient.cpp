@@ -1,7 +1,13 @@
 #include <iostream>
 #include <string>
-
 #include "Src/User.h"
+
+void LoginHelp() {
+	int choice;
+	std::cout << "1: Username requirements\n2: Password requirements\n\nYour choice: "; std::cin >> choice;
+
+}
+
 
 int main()
 {
@@ -26,6 +32,7 @@ int main()
 				std::cout << "Logging in" << std::endl;
 				account->UserOptions();
 			}
+			account->~User();
 			break;
 		}
 		case 3:
